@@ -2,6 +2,7 @@
 import FirstComponent from './components/FirstComponent'
 import TemplateExpressions from './components/TemplateExpressions'
 import SecondComponent from './components/SecondComponent'
+import Events from './components/Events'
 
 // React Functions
 import { useState } from 'react'
@@ -19,6 +20,7 @@ function App() {
       <FirstComponent />
       <TemplateExpressions />
       <SecondComponent />
+      <Events />
     </div>
     </>
   )
