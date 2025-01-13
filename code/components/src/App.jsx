@@ -1,5 +1,6 @@
 // Components
 import FirstComponent from './components/FirstComponent'
+import TemplateExpressions from './components/TemplateExpressions'
 
 // React Functions
 import { useState } from 'react'
@@ -15,6 +16,7 @@ function App() {
     <div>
       <h1>Components Class 1</h1>
       <FirstComponent />
+      <TemplateExpressions />
     </div>
     </>
   )
