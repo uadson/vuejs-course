@@ -12,8 +12,10 @@ function App() {
 
   return (
     <>
+    <div>
       <h1>Components Class 1</h1>
       <FirstComponent />
+    </div>
     </>
   )
 }
