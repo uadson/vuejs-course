@@ -1,5 +1,6 @@
 // Components
 import PublicImages from './components/PublicImages'
+import SrcImages from './components/SrcImages'
 
 import { useState } from 'react'
 import './App.css'
@@ -11,6 +12,7 @@ function App() {
     <>
       <div>
         < PublicImages />
+        < SrcImages />
       </div>
     </>
   )
