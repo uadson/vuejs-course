@@ -1,6 +1,7 @@
 // Components
 import PublicImages from './components/PublicImages'
 import SrcImages from './components/SrcImages'
+import Hooks from './components/Hooks'
 
 import { useState } from 'react'
 import './App.css'
@@ -13,6 +14,7 @@ function App() {
       <div>
         < PublicImages />
         < SrcImages />
+        < Hooks />
       </div>
     </>
   )
