@@ -3,6 +3,7 @@ import PublicImages from './components/PublicImages'
 import SrcImages from './components/SrcImages'
 import Hooks from './components/Hooks'
 import ListsRendering from './components/ListsRendering'
+import ConditionalRender from './components/ConditionalRender'
 
 // Styles
 import './App.css'
@@ -17,6 +18,7 @@ function App() {
         < SrcImages />
         < Hooks />
         < ListsRendering />
+        < ConditionalRender />
       </div>
     </>
   )

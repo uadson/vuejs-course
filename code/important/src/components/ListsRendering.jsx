@@ -12,7 +12,7 @@ const ListsRendering = () => {
     ])
 
     const deleteRandom = () => {
-        // 6 => items number list
+        // 7 => items number list
         const randomNumber = Math.floor(Math.random() * 7)
         setItems((prevItems) => {
             return prevItems.filter((item) => randomNumber !== item.id)
