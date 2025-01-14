@@ -4,6 +4,7 @@ import SrcImages from './components/SrcImages'
 import Hooks from './components/Hooks'
 import ListsRendering from './components/ListsRendering'
 import ConditionalRender from './components/ConditionalRender'
+import Props from './components/Props'
 
 // Styles
 import './App.css'
@@ -11,6 +12,9 @@ import './App.css'
 // Main
 function App() {
   
+  // Props
+  const username = "Foo bar"
+
   return (
     <>
       <div>
@@ -19,6 +23,7 @@ function App() {
         < Hooks />
         < ListsRendering />
         < ConditionalRender />
+        < Props username={username}/>
       </div>
     </>
   )
