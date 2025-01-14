@@ -2,19 +2,21 @@
 import PublicImages from './components/PublicImages'
 import SrcImages from './components/SrcImages'
 import Hooks from './components/Hooks'
+import ListsRendering from './components/ListsRendering'
 
-import { useState } from 'react'
+// Styles
 import './App.css'
 
+// Main
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
       <div>
         < PublicImages />
         < SrcImages />
         < Hooks />
+        < ListsRendering />
       </div>
     </>
   )
