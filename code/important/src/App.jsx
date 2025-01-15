@@ -17,7 +17,7 @@ function App() {
   const username = "Foo bar"
 
   // Car detail
-  const car = [
+  const cars = [
     {
       "brand": "Tesla",
       "km": 10000,
@@ -53,12 +53,15 @@ function App() {
         < ListsRendering />
         < ConditionalRender />
         < Props username={username}/>
-        < DestructuringProps brand={car[0].brand} km={car[0].km} color={car[0].color} newCar={car[0].status}/>
+        < DestructuringProps brand={cars[0].brand} km={cars[0].km} color={cars[0].color} newCar={cars[0].status}/>
         {/* Component reuse */}
-        < DestructuringProps brand={car[1].brand} km={car[1].km} color={car[1].color} newCar={car[1].status}/>
-        < DestructuringProps brand={car[2].brand} km={car[2].km} color={car[2].color} newCar={car[2].status}/>
-        < DestructuringProps brand={car[3].brand} km={car[3].km} color={car[3].color} newCar={car[3].status}/>
-
+        < DestructuringProps brand={cars[1].brand} km={cars[1].km} color={cars[1].color} newCar={cars[1].status}/>
+        < DestructuringProps brand={cars[2].brand} km={cars[2].km} color={cars[2].color} newCar={cars[2].status}/>
+        < DestructuringProps brand={cars[3].brand} km={cars[3].km} color={cars[3].color} newCar={cars[3].status}/>
+        {/* Component reuse with loop */}
+        {cars.map((car) => (
+          < DestructuringProps brand={car.brand} km={car.km} color={car.color} newCar={car.status}/>
+        ))}
       </div>
     </>
   )
