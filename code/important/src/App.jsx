@@ -8,6 +8,7 @@ import Props from './components/Props'
 import DestructuringProps from './components/DestructuringProps'
 import Fragments from './components/Fragments'
 import ChildrenProps from './components/ChildrenProps'
+import ExecutionFunction from './components/ExecutionFunction'
 
 // Styles
 import './App.css'
@@ -21,30 +22,39 @@ function App() {
   // Car detail
   const cars = [
     {
+      "id": 1,
       "brand": "Tesla",
       "km": 10000,
       "color": "Azul",
       "status": false
     },
     {
+      "id": 2,
       "brand": "BYD",
       "km": 0,
       "color": "Branco",
       "status": true
     },
     {
+      "id": 3,
       "brand": "GWM",
       "km": 1000,
       "color": "Cinza",
       "status": false
     },
     {
+      "id": 4,
       "brand": "GM",
       "km": 0,
       "color": "Vermelho",
       "status": true
     },
   ]
+
+  // Function like a prop
+  function showMessage() {
+    document.querySelector("#msg").innerHTML = "Esta é uma função que declarada em um props"
+  }
 
   return (
     <>
@@ -62,12 +72,13 @@ function App() {
         < DestructuringProps brand={cars[3].brand} km={cars[3].km} color={cars[3].color} newCar={cars[3].status}/>
         {/* Component reuse with loop */}
         {cars.map((car) => (
-          < DestructuringProps brand={car.brand} km={car.km} color={car.color} newCar={car.status}/>
+          < DestructuringProps key={car.id} brand={car.brand} km={car.km} color={car.color} newCar={car.status}/>
         ))}
         < Fragments propFragment="Test"/>
         < ChildrenProps propTest="Qualquer valor">
           <p>Aqui é o conteúdo</p>
         </ChildrenProps >
+        < ExecutionFunction showMessage={showMessage}/>
       </div>
     </>
   )
