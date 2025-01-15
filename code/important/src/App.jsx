@@ -5,6 +5,7 @@ import Hooks from './components/Hooks'
 import ListsRendering from './components/ListsRendering'
 import ConditionalRender from './components/ConditionalRender'
 import Props from './components/Props'
+import DestructuringProps from './components/DestructuringProps'
 
 // Styles
 import './App.css'
@@ -15,6 +16,13 @@ function App() {
   // Props
   const username = "Foo bar"
 
+  // Car detail
+  const car = {
+    "brand": "Tesla",
+    "km": 10000,
+    "color": "Azul"
+  }
+
   return (
     <>
       <div>
@@ -24,6 +32,7 @@ function App() {
         < ListsRendering />
         < ConditionalRender />
         < Props username={username}/>
+        < DestructuringProps brand={car.brand} km={car.km} color={car.color}/>
       </div>
     </>
   )
