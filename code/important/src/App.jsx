@@ -6,9 +6,11 @@ import ListsRendering from './components/ListsRendering'
 import ConditionalRender from './components/ConditionalRender'
 import Props from './components/Props'
 import DestructuringProps from './components/DestructuringProps'
+import Fragments from './components/Fragments'
 
 // Styles
 import './App.css'
+import { Fragment } from 'react'
 
 // Main
 function App() {
@@ -62,6 +64,7 @@ function App() {
         {cars.map((car) => (
           < DestructuringProps brand={car.brand} km={car.km} color={car.color} newCar={car.status}/>
         ))}
+        < Fragments propFragment="Test"/>
       </div>
     </>
   )
