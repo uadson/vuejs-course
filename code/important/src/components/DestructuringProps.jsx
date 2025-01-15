@@ -1,4 +1,4 @@
-const DestructuringProps = ({brand, km, color}) => {
+const DestructuringProps = ({brand, km, color, newCar}) => {
   return (
     <div>
         <h1>DestructuringProps</h1>
@@ -10,6 +10,8 @@ const DestructuringProps = ({brand, km, color}) => {
                     <li>Marca: {brand}</li>
                     <li>KM: {km}</li>
                     <li>Cor: {color}</li>
+                    {newCar && <li>Condição: Novo</li>}
+                    {!newCar && <li>Condição: Usado</li>}
                 </ul>
             </div>
         </div>
