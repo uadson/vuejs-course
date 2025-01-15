@@ -7,10 +7,10 @@ import ConditionalRender from './components/ConditionalRender'
 import Props from './components/Props'
 import DestructuringProps from './components/DestructuringProps'
 import Fragments from './components/Fragments'
+import ChildrenProps from './components/ChildrenProps'
 
 // Styles
 import './App.css'
-import { Fragment } from 'react'
 
 // Main
 function App() {
@@ -65,6 +65,9 @@ function App() {
           < DestructuringProps brand={car.brand} km={car.km} color={car.color} newCar={car.status}/>
         ))}
         < Fragments propFragment="Test"/>
+        < ChildrenProps propTest="Qualquer valor">
+          <p>Aqui é o conteúdo</p>
+        </ChildrenProps >
       </div>
     </>
   )
