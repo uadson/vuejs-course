@@ -9,6 +9,11 @@ import DestructuringProps from './components/DestructuringProps'
 import Fragments from './components/Fragments'
 import ChildrenProps from './components/ChildrenProps'
 import ExecutionFunction from './components/ExecutionFunction'
+import Message from './components/Message'
+import ChangeMessageStage from './components/ChangeMessageStage'
+
+// Hooks
+import { useState } from 'react'
 
 // Styles
 import './App.css'
@@ -56,6 +61,13 @@ function App() {
     document.querySelector("#msg").innerHTML = "Esta é uma função que declarada em um props"
   }
 
+  // State lift
+  const [message, setMessage] = useState(" ")
+
+  const handleMessage = (msg) => {
+    setMessage(msg)
+  }
+
   return (
     <>
       <div>
@@ -79,6 +91,8 @@ function App() {
           <p>Aqui é o conteúdo</p>
         </ChildrenProps >
         < ExecutionFunction showMessage={showMessage}/>
+        < Message message={message}/>
+        < ChangeMessageStage handleMessage={handleMessage}/>
       </div>
     </>
   )
