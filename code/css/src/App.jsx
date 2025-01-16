@@ -14,6 +14,15 @@ function App() {
       {/** Css de Component */}
       <CssComponent />
       <p>Este parágrafo é do App.jsx</p>
+
+      {/** Inline CSS */}
+      <p style={{
+        color: "#391463", 
+        backgroundColor: "#ECCE0D",
+        padding: "25px"
+      }}>
+        Este parágrafo contém estilos que foram atribuídos de modo inline
+      </p>
     </div>
   )
 }
