@@ -1,3 +1,6 @@
+// Hooks
+import { useState } from 'react'
+
 // Styles
 import './App.css'
 
@@ -7,6 +10,8 @@ import CssComponent from './components/CssComponent'
 
 function App() {
 
+  const [addValue, setValue] = useState(0)
+
   return (
     <div>
       <h1>React with CSS</h1>
@@ -15,7 +20,7 @@ function App() {
       <CssComponent />
       <p>Este parágrafo é do App.jsx</p>
 
-      {/** Inline CSS */}
+      {/** CSS Inline */}
       <p style={{
         color: "#391463", 
         backgroundColor: "#ECCE0D",
@@ -23,6 +28,17 @@ function App() {
       }}>
         Este parágrafo contém estilos que foram atribuídos de modo inline
       </p>
+
+      {/** CSS Inline dinâmico */}
+      <div>
+        <p style={addValue > 3 ? ({backgroundColor: "#2D936C"}):({backgroundColor: "#5FAD41"})}>
+          Este parágrafo contém estilos que foram atribuídos de modo inline dinâmico
+        </p>
+        <p>{addValue}</p>
+        <button onClick={() => setValue(addValue + 1)}>+</button>
+        <button onClick={() => setValue(addValue - 1)}>-</button>
+      </div>
+      
     </div>
   )
 }
