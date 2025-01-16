@@ -6,6 +6,7 @@ import './App.css'
 
 // Components
 import CssComponent from './components/CssComponent'
+import CssModules from './components/CssModules'
 
 
 function App() {
@@ -48,6 +49,10 @@ function App() {
         </p>
         <button onClick={() => setFooClass(fooClass ? false : true)}>Alterar cor</button>
       </div>
+
+      {/** CSS Modules */}
+      <CssModules />
+
       
     </div>
   )
