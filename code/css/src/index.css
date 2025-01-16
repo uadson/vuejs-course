@@ -11,3 +11,15 @@ h1 {
   font-style: italic;
   color: #5b618a;
 }
+
+.foo-class {
+  color: #03B5AA;
+  background-color: #5b618a;
+  padding: 2%;
+}
+
+.bar-class {
+  color: #AF3B6E;
+  background-color: #21FA90;
+  padding: 2%;
+}

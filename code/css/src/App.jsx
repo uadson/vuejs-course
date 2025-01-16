@@ -12,6 +12,8 @@ function App() {
 
   const [addValue, setValue] = useState(0)
 
+  const [fooClass, setFooClass] = useState(true)
+
   return (
     <div>
       <h1>React with CSS</h1>
@@ -37,6 +39,14 @@ function App() {
         <p>{addValue}</p>
         <button onClick={() => setValue(addValue + 1)}>+</button>
         <button onClick={() => setValue(addValue - 1)}>-</button>
+      </div>
+
+      {/** CSS Classe dinâmica */}
+      <div>
+        <p className={fooClass ? "foo-class" : "bar-class"}>
+          Este parágrafo contém estilos que foram atribuídos por uma classe dinâmica
+        </p>
+        <button onClick={() => setFooClass(fooClass ? false : true)}>Alterar cor</button>
       </div>
       
     </div>
