@@ -1,0 +1,13 @@
+/* esse estilo impactou no estilo do arquivo principal App.jsx*/
+p {
+    color: #4a4341;
+    background-color: #c1dd0c;
+}
+
+/* para que o estilo não impacte em outros 
+componentes é importante realizar a identificação por nome de classes*/
+
+.css-component {
+    color: #bfae48;
+    background-color: #38302e;
+}
