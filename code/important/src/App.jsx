@@ -11,6 +11,8 @@ import ChildrenProps from './components/ChildrenProps'
 import ExecutionFunction from './components/ExecutionFunction'
 import Message from './components/Message'
 import ChangeMessageStage from './components/ChangeMessageStage'
+import Challange from './components/Challange'
+import UserDetails from './components/UserDetails'
 
 // Hooks
 import { useState } from 'react'
@@ -56,6 +58,34 @@ function App() {
     },
   ]
 
+  //User Details
+  const users = [
+    {
+      "id": 1,
+      "name": "John",
+      "age": 22,
+      "job": "developer"
+    },
+    {
+      "id": 2,
+      "name": "Gabrielly",
+      "age": 17,
+      "job": "student"
+    },
+    {
+      "id": 3,
+      "name": "Marcelly",
+      "age": 19,
+      "job": "designer"
+    },
+    {
+      "id": 4,
+      "name": "Bob",
+      "age": 28,
+      "job": "data analisty"
+    }
+  ]
+
   // Function like a prop
   function showMessage() {
     document.querySelector("#msg").innerHTML = "Esta é uma função que declarada em um props"
@@ -93,6 +123,16 @@ function App() {
         < ExecutionFunction showMessage={showMessage}/>
         < Message message={message}/>
         < ChangeMessageStage handleMessage={handleMessage}/>
+        < Challange />
+        <h1>Usuários que podem tirar carteira de habilitação</h1>
+          {users.map((user) => (
+            <UserDetails 
+              key={user.id}
+              name={user.name}
+              age={user.age}
+              job={user.job}
+            />
+          ))}
       </div>
     </>
   )

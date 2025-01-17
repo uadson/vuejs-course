@@ -7,6 +7,7 @@ import './App.css'
 // Components
 import CssComponent from './components/CssComponent'
 import CssModules from './components/CssModules'
+import Cars from './components/Cars'
 
 
 function App() {
@@ -53,7 +54,8 @@ function App() {
       {/** CSS Modules */}
       <CssModules />
 
-      
+      <h1>Carros</h1>
+      <Cars />
     </div>
   )
 }
