@@ -1,0 +1,57 @@
+.card-main {
+    border-color: #008080;
+}
+
+.card-main, .card-child-header {
+    background-color: #008080;
+}
+
+.card-child-body {
+    background-color: #f6f6f6;
+    border-color: #008080;
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.chat-list {
+    list-style: none;
+}
+
+.chat-logo {
+    width: 45px;
+    height: 100%;
+}
+
+.chat-textarea {
+    width: 250px;
+    height: 80px;
+
+}
+
+.message-received {
+    text-align: left;
+    border-radius: 15px;
+    background-color: #E8E8E8;
+    color: black;
+}
+
+.receiver {
+    background-color: #E8E8E8;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+    margin-right: auto;
+}
+
+.receiver::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
