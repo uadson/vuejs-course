@@ -16,6 +16,10 @@ const Form1 = ({ user }) => {
         console.log("Form enviado")
         console.log(name)
         console.log(email)
+
+        // Clear form
+        setName("")
+        setEmail("")
     }
     
     return (
