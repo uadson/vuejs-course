@@ -6,7 +6,8 @@ const Form1 = ({ user }) => {
 
     const [name, setName] = useState(user ? user.name : "")
     const [email, setEmail] = useState(user ? user.email : "")
-    const [bio, setBio] = useState("")
+    const [bio, setBio] = useState(user ? user.bio : "")
+    const [role, setRole] = useState(user ? user.role : "")
 
     const handleName = (e) => {
         setName(e.target.value)
@@ -18,6 +19,7 @@ const Form1 = ({ user }) => {
         console.log(name)
         console.log(email)
         console.log(bio)
+        console.log(role)
 
         // Clear form
         setName("")
@@ -62,6 +64,16 @@ const Form1 = ({ user }) => {
                         value={bio}
                         >
                     </textarea>
+                </label>
+
+                <label>
+                    <span>Selecione uma Função</span>
+                    <select name="role" onChange={(e) => setRole(e.target.value)} value={role}>
+                        <option value="admin">Administrador</option>
+                        <option value="dev">Desenvolvedor</option>
+                        <option value="dba">DBA</option>
+                        <option value="desg">Designer UI/UX</option>
+                    </select>
                 </label>
                 <input type="submit" value="Enviar"/>
             </form>
