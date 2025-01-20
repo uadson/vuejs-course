@@ -6,6 +6,7 @@ const Form1 = ({ user }) => {
 
     const [name, setName] = useState(user ? user.name : "")
     const [email, setEmail] = useState(user ? user.email : "")
+    const [bio, setBio] = useState("")
 
     const handleName = (e) => {
         setName(e.target.value)
@@ -16,10 +17,12 @@ const Form1 = ({ user }) => {
         console.log("Form enviado")
         console.log(name)
         console.log(email)
+        console.log(bio)
 
         // Clear form
         setName("")
         setEmail("")
+        setBio("")
     }
     
     return (
@@ -36,7 +39,6 @@ const Form1 = ({ user }) => {
                         value={name}
                     />
                 </div>
-                <input type="submit" value="Enviar"/>
 
                 {/** Label envolvendo input */}
                 {/** Simplificando a manipulação do state */}
@@ -49,6 +51,17 @@ const Form1 = ({ user }) => {
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
                     />
+                </label>
+
+                <label>
+                    <span>Bio</span>
+                    <textarea
+                        name="bio"
+                        placeholder='Descrição do usuário'
+                        onChange={(e) => setBio(e.target.value)}
+                        value={bio}
+                        >
+                    </textarea>
                 </label>
                 <input type="submit" value="Enviar"/>
             </form>
