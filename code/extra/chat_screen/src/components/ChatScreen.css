@@ -1,0 +1,47 @@
+.card {
+    width: 500px;
+    border: 1px solid blue;
+}
+
+.card, .card-header {
+    border-bottom: 1px solid blue;
+}
+
+.card-header, h4 {
+    color: #F6F6F6;
+    background-color: blue;
+}
+
+.card-body-messages {
+    height: 480px;
+}
+
+.card-body-messages, ul {
+    list-style: none;
+}
+
+.card-footer {
+    height: 110px;
+    border-top: 1px solid blue;
+    background-color: blue;
+}
+
+textarea {
+    width: 110%;
+    border-radius: 10px;
+    border-color: blue;
+}
+
+button {
+    padding: 0 10px;
+    border-radius: 25px;
+    height: 40px;
+    border-color: lightblue;
+    background-color: lightblue;
+    color: blue;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: lightseagreen;
+}
