@@ -40,8 +40,6 @@ const Game = ({
                         <span key={index} className="blankSquare"></span>
                     )
                 ))}
-                <span className="letter"></span>
-                <span className="blankSquare"></span>
             </div>
             <div className="letterContainer">
                 <p>Tente adivinhar uma letra da palavra:</p>
