@@ -1,0 +1,27 @@
+.card {
+    width: 500px;
+    border: 1px solid blue;
+}
+
+.card, .card-header {
+    border-bottom: 1px solid blue;
+}
+
+.card-header, h4 {
+    color: #F6F6F6;
+    background-color: blue;
+}
+
+.card-body-messages {
+    height: 480px;
+}
+
+.card-body-messages, ul {
+    list-style: none;
+}
+
+.card-footer {
+    height: 110px;
+    border-top: 1px solid blue;
+    background-color: blue;
+}
