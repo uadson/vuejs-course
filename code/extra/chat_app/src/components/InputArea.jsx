@@ -6,9 +6,17 @@ const InputArea = ({onSendMessage}) => {
     const [message, setMessage] = useState('')
 
     const handleSubmit = (e) => {
-        e.preventDetault()
+        e.preventDefault()
         onSendMessage(message)
         setMessage('')
+    }
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault()
+            onSendMessage(message)
+            setMessage('')
+        }
     }
     
     return (
@@ -19,6 +27,8 @@ const InputArea = ({onSendMessage}) => {
                         className='form-control'
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
+                        onKeyDown={handleKeyPress}
+                        placeholder='Digite sua mensagem'
                     >
                     </textarea>
                 </div>
