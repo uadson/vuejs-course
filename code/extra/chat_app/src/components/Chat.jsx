@@ -1,6 +1,8 @@
 import React, { useState, useEffect} from "react";
 import io from 'socket.io-client'
 import './css/Chat.css'
+import MessageList from "./MessageList";
+import InputArea from "./InputArea";
 
 const socket = io('http://localhost:5000')
 
@@ -26,10 +28,10 @@ const Chat = () => {
                         <h4>Chat</h4>
                     </div>
                     <div className="card-body card-body-messages">
-                        
+                        <MessageList messages={messages}/>
                     </div>
                     <div className="card-body card-footer">
-                        
+                        <InputArea onSendMessage={sendMessage}/>
                     </div>
                 </div>
             </div>

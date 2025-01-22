@@ -1,0 +1,19 @@
+textarea {
+    width: 110%;
+    border-radius: 10px;
+    border-color: blue;
+}
+
+button {
+    padding: 0 10px;
+    border-radius: 25px;
+    height: 40px;
+    border-color: lightblue;
+    background-color: lightblue;
+    color: blue;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: lightseagreen;
+}
