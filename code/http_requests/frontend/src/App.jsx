@@ -6,7 +6,10 @@ const baseUrl = "http://127.0.0.1:8002/products-api/v1/products"
 
 function App() {
   const [products, setProducts] = useState([])
+  const [name, setName] = useState("")
+  const [price, setPrice] = useState("")
 
+  // GET
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(baseUrl)
@@ -15,19 +18,53 @@ function App() {
     }
     fetchData()
   },[])
+
+  // POST
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const product = {
+      name,
+      price
+    }
+
+    const response = await fetch(baseUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        
+      },
+      body: JSON.stringify(product)
+    })
+  }
+
   return (
     <>
       <div>
         <h1>Products List</h1>
-        <p>
-          <ul>
-            {products.map((product) => (
-              <li key={product.id}>
-                Drum: {product.name} - Price: $ {product.price}
-              </li>
-            ))}
-          </ul>
-        </p>
+        <h3>Add Products</h3>
+        <div className="add-product">
+            <form onSubmit={handleSubmit}>
+              <label>
+                Name:
+                <input type="text" value={name} name="name" onChange={(e) => setName(e.target.value)} />
+              </label>
+              <label>
+                Price:
+                <input type="text" value={price} name="price" onChange={(e) => setPrice(e.target.value)} />
+              </label>
+              <input type="submit" value="Send" />
+            </form>
+          </div>
+          <div>
+            <ul className='products-list'>
+              {products.map((product) => (
+                <li key={product.id}>
+                  Drum: {product.name} - Price: $ {product.price}
+                </li>
+              ))}
+            </ul>
+          </div>
       </div>
     </>
   )
