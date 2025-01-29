@@ -12,6 +12,20 @@ services:
     networks:
       api_net:
         ipv4_address: 180.20.1.2
+  pgadmin:
+    container_name: pgadmin_fastapi_react
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=db@dev.com
+      - PGADMIN_DEFAULT_PASSWORD=dbadmin
+    ports:
+      - "5051:80"
+    depends_on:
+      - db
+    restart: always
+    networks:
+      api_net:
+        ipv4_address: 180.20.1.3
 
 volumes:
   postgres_data:

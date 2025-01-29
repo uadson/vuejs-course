@@ -3,7 +3,7 @@ from sqlmodel import Field, SQLModel
 
 class ProductBase(SQLModel):
     name: str = Field(index=True)
-    price: float
+    price: float = Field()
     
 
 class Product(ProductBase, table=True):
