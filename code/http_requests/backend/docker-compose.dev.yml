@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: apidb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    env_file:
+      - "./src/postgres/.env.dev.db"
+    restart: always
+    networks:
+      api_net:
+        ipv4_address: 180.20.1.2
+
+volumes:
+  postgres_data:
+
+networks:
+  api_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 180.20.1.0/24

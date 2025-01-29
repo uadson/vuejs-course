@@ -1,0 +1,2 @@
+[database]
+database_url = "postgresql+asyncpg://postgres:postgres@180.20.1.2:5432/apidb"
