@@ -3,8 +3,8 @@ from sqlmodel import Field, SQLModel
 
 
 class ProductBase(SQLModel):
-    name: str = Field(index=True)
-    price: float = Field()
+    name: str = Field(index=True, default=None)
+    price: float = Field(default=None)
     
     @field_validator('price')
     def price_validate(cls, value):
