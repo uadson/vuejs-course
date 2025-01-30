@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 
 import './App.css'
 
-const baseUrl = "http://127.0.0.1:8002/products-api/v1/products"
+const baseUrl = "http://127.0.0.1:8000/products-api/v1/products"
 
 function App() {
   const [products, setProducts] = useState([])
@@ -36,6 +36,13 @@ function App() {
       },
       body: JSON.stringify(product)
     })
+
+    // Carregamento dinâmico
+    const addedProduct = await response.json()
+
+    setProducts((prevProducts) => [...prevProducts, addedProduct])
+    setName("")
+    setPrice("")
   }
 
   return (
