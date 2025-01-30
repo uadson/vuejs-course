@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 // custom hook
-import {useFetch} from './hooks/useFetch'
+import {handleCrud} from './hooks/handleCrud'
 
 import './App.css'
 
@@ -10,11 +10,11 @@ function App() {
   const [products, setProducts] = useState([])
   
   // GET - custom hook
-  const {data: items} = useFetch(url)
+  const {data: items, httpConfig} = handleCrud(url)
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")
 
-  // GET
+  // GET - no hook
   // useEffect(() => {
   //   async function fetchData() {
   //     const response = await fetch(url)
@@ -33,19 +33,21 @@ function App() {
       price
     }
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    // no hook
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
         
-      },
-      body: JSON.stringify(product)
-    })
+    //   },
+    //   body: JSON.stringify(product)
+    // })
 
-    // Carregamento dinâmico
-    const addedProduct = await response.json()
+    // // Carregamento dinâmico
+    // const addedProduct = await response.json()
 
-    setProducts((prevProducts) => [...prevProducts, addedProduct])
+    // setProducts((prevProducts) => [...prevProducts, addedProduct])
+    httpConfig(product, "POST")
     setName("")
     setPrice("")
   }
