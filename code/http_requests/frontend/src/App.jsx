@@ -1,23 +1,28 @@
 import {useEffect, useState} from 'react'
+// custom hook
+import {useFetch} from './hooks/useFetch'
 
 import './App.css'
 
-const baseUrl = "http://127.0.0.1:8000/products-api/v1/products"
+const url = "http://127.0.0.1:8000/products-api/v1/products"
 
 function App() {
   const [products, setProducts] = useState([])
+  
+  // GET - custom hook
+  const {data: items} = useFetch(url)
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")
 
   // GET
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(baseUrl)
-      const data = await response.json()
-      setProducts(data)
-    }
-    fetchData()
-  },[])
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch(url)
+  //     const data = await response.json()
+  //     setProducts(data)
+  //   }
+  //   fetchData()
+  // },[])
 
   // POST
   const handleSubmit = async (e) => {
@@ -28,7 +33,7 @@ function App() {
       price
     }
 
-    const response = await fetch(baseUrl, {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +70,7 @@ function App() {
           </div>
           <div>
             <ul className='products-list'>
-              {products.map((product) => (
+              {items && items.map((product) => (
                 <li key={product.id}>
                   Drum: {product.name} - Price: $ {product.price}
                 </li>
