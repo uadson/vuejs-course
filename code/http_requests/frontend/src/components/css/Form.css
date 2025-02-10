@@ -1,0 +1,10 @@
+.form-div {
+    position: fixed;
+    top: 50px;
+    left: 340px;
+    width: 720px;
+}
+
+.input-name {
+    width: 500px;
+}

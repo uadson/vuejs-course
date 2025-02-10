@@ -1,0 +1,23 @@
+.table-div {
+    position: fixed;
+    top: 300px;
+    left: 350px;
+    width: 700px;
+}
+
+.table-conf,
+tbody {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 300px;
+}
+
+.name-col {
+    position: fixed;
+    left: 450px;
+}
+
+.price-col {
+    position: fixed;
+    left: 850px;
+}
