@@ -45,18 +45,18 @@ const Form = () => {
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
-                "Content-Type": "application/json"
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": "application/json",
             },
+            mode: "no-cors",
             body: JSON.stringify(product)
         })
 
         const addedProduct = await response.json()
 
         setProducts((prevProducts) => [...prevProducts, addedProduct])
-
         setName("")
         setPrice("")
-
     }
     return (
         <>
