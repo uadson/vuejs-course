@@ -69,7 +69,19 @@ var productsList = [
 const productsService = {
     data() {
         return {
+            header: "Burgueria do Jamba",
             products: window.productsList
+        }
+    },
+    methods: {
+        total () {
+            let total = 0
+            this.products.forEach((item) => {
+                if (item.active) {
+                    total += item.price * item.quantity
+                }
+            })
+            return total.toFixed(2)
         }
     }
 }

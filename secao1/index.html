@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <title>Burgueria do Jamba</title>
+</head>
+
+<body>
+    <main id="app">
+        <section class="items">
+            <h3 class="fw-bold text-decoration-underline">{{ header }}</h3>
+            <h4>Selecione os produtos</h4>
+            <!-- Eventos-->
+            <!-- v-on:click ou @click -> onde é possível implementar uma condicional -->
+            <!-- v-bind ou :class -> onde é possível implementar uma condicional sobre o 
+             comportamento do atributo -->
+            <div v-for="product in products" class="product" @click="product.active = !product.active"
+                :class="{ selected : product.active }">
+                <div class="photo">
+                    <!-- :src -> para comportamentos dinâmicos -->
+                    <img :src="product.photo">
+                </div>
+                <div class="description">
+                    <span class="name">{{ product.name }}</span>
+                    <span class="price">R$ {{ product.price }}</span>
+                    <div class="quantity-area" v-if="product.active">
+                        <!-- .stop propagation -> ao clicar no elemento 'filho', este comportamento não impacta 
+                         o comportamento do elemento 'pai'-->
+                        <button @click.stop="product.quantity-=1" :disabled="product.quantity <= 1">-</button>
+                        <span class="quantity">{{ product.quantity }}</span>
+                        <button @click.stop="product.quantity+=1">+</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="summary" v-if="total() > 0">
+            <strong>Resumo do pedido</strong>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="product in products">
+                        <!-- utilizando template aqui, há economia de código (uso da diretiva v-if)-->
+                         <!-- Sem o uso do template
+                            <td v-if="product.active">{{product.quantity + 'X ' + product.name}}</td>
+                            <td v-if="product.active">{{(product.quantity * product.price).toFixed(2)}}</td>
+                         -->
+                        <!-- Com o uso do template -->
+                        <template v-if="product.active">
+                            <td>{{product.quantity + 'X ' + product.name}}</td>
+                            <td>{{(product.quantity * product.price).toFixed(2)}}</td>
+                        </template>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <th>{{ total() }}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="/src/js/main.js"></script>
+</body>
+</html>
