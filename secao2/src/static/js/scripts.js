@@ -1,4 +1,4 @@
-const { createApp, ref } = Vue
+const { createApp, ref, onMounted } = Vue
 
 createApp({
     setup() {
@@ -13,15 +13,24 @@ createApp({
                     done: false
                 })
                 newTask.value = ''
+                localStorage.setItem('tasks', JSON.stringify(tasksList.value))
+                alert('Tarefa adicionada com sucesso!')
             } else {
                 alert('O nome de uma tarefa deve ser informado!')
             }
         }
+
+        const created = () => {
+            this.tasksList = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem("tasks")) : this.tasksList
+        }
+
+        onMounted(created)
+
         return {
             tasksList,
             title,
             newTask,
-            addTask
+            addTask,
         }
     }
 }).mount('#app')
